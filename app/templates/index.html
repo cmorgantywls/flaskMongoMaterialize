@@ -1,0 +1,19 @@
+{% extends "base.html" %} 
+<!--get the template from base.html and we're gonna add on to it!-->
+
+<!--this is me telling jinja2 how to fill those blocks - -->
+<!--notice I don't have to redo the HTML here.-->
+{% block title %}Community Board Content{% endblock %} 
+
+<!--connects to "content" in base.html - so it fills into the body-->
+<!--even though there is no body tag in this index.html!-->
+{% block content %}
+<h1>Community Events Board</h1>
+  <div class="event-list">
+    <ul>
+      {% for event in events %}
+      <li>{{ event.event }} - {{ event.date }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
